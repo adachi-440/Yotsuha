@@ -1,0 +1,48 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@biconomy/mexa": "^3.0.5",
+    "@biconomy/smart-account": "^0.0.4",
+    "@biconomy/web3-auth": "^0.0.4",
+    "@material-ui/core": "^4.12.4",
+    "@metamask/sdk": "^0.0.1-beta.5",
+    "@nextui-org/react": "^1.0.0-beta.10",
+    "bufferutil": "^4.0.7",
+    "eth-sig-util": "^3.0.1",
+    "ethers": "^5.7.2",
+    "net": "^1.0.2",
+    "next": "13.0.4",
+    "next-themes": "^0.2.1",
+    "node-gyp-build": "^4.5.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-notifications": "^1.7.4",
+    "tls": "^0.0.1",
+    "utf-8-validate": "^5.0.10",
+    "web3": "^1.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.9",
+    "@web3modal/ethereum": "^2.0.0-beta.7",
+    "@web3modal/react": "^2.0.0-beta.7",
+    "eslint": "8.28.0",
+    "eslint-config-next": "13.0.4",
+    "typescript": "4.9.3",
+    "wagmi": "^0.8.10"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  }
+}

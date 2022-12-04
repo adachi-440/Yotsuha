@@ -1,0 +1,29 @@
+.cardcontens{
+    display: flex;
+}
+.button{
+    width: 100px;
+}
+
+.bubu{
+    padding-top: 20px;
+    display: flex;
+}
+.srcchain{
+    width: 100%;
+    height: 30px;
+ background: rgba(255, 255, 255, 0.1);
+ border-radius: 1000px;
+ background-color: grey;
+ text-align: center;
+
+}
+.srcchaintext{
+    color: white;
+    padding-top: 4px;
+}
+.maincard{
+    padding-top: 100px;
+    padding-left:  20%;
+    padding-right: 20%;
+}

@@ -1,0 +1,860 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint8",
+        "name": "destinationChainID",
+        "type": "uint8"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "resourceID",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint64",
+        "name": "depositNonce",
+        "type": "uint64"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "widgetID",
+        "type": "uint256"
+      }
+    ],
+    "name": "ReplayEvent",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "previousAdminRole",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "newAdminRole",
+        "type": "bytes32"
+      }
+    ],
+    "name": "RoleAdminChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      }
+    ],
+    "name": "RoleGranted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      }
+    ],
+    "name": "RoleRevoked",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "BRIDGE_ROLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "DEFAULT_ADMIN_ROLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "FEE_SETTER_ROLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "_rSyncContract",
+            "type": "address"
+          },
+          {
+            "internalType": "uint8",
+            "name": "_chainID",
+            "type": "uint8"
+          },
+          {
+            "internalType": "address",
+            "name": "_linkedContract",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct GenericHandlerUpgradeable.RouterLinker",
+        "name": "linker",
+        "type": "tuple"
+      }
+    ],
+    "name": "MapContract",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "_rSyncContract",
+            "type": "address"
+          },
+          {
+            "internalType": "uint8",
+            "name": "_chainID",
+            "type": "uint8"
+          },
+          {
+            "internalType": "address",
+            "name": "_linkedContract",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct GenericHandlerUpgradeable.RouterLinker",
+        "name": "linker",
+        "type": "tuple"
+      }
+    ],
+    "name": "UnMapContract",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "bridge",
+    "outputs": [
+      {
+        "internalType": "contract iGBridge",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint8",
+        "name": "destinationChainID",
+        "type": "uint8"
+      },
+      {
+        "internalType": "address",
+        "name": "feeTokenAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "gasLimit",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "gasPrice",
+        "type": "uint256"
+      }
+    ],
+    "name": "calculateFees",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes",
+        "name": "_data",
+        "type": "bytes"
+      }
+    ],
+    "name": "executeProposal",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint8",
+        "name": "_chainID",
+        "type": "uint8"
+      }
+    ],
+    "name": "fetchDefaultGas",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint8",
+        "name": "_chainID",
+        "type": "uint8"
+      }
+    ],
+    "name": "fetchDefaultGasPrice",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint8",
+        "name": "_ChainID",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint64",
+        "name": "_nonce",
+        "type": "uint64"
+      }
+    ],
+    "name": "fetchDepositRecord",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "bytes32",
+            "name": "_resourceID",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint8",
+            "name": "_srcChainID",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "_destChainID",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint64",
+            "name": "_nonce",
+            "type": "uint64"
+          },
+          {
+            "internalType": "address",
+            "name": "_srcAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "_destAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "bytes4",
+            "name": "_selector",
+            "type": "bytes4"
+          },
+          {
+            "internalType": "bytes",
+            "name": "data",
+            "type": "bytes"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "hash",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_gas",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "_feeToken",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct GenericHandlerUpgradeable.DepositRecord",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint8",
+        "name": "_ChainID",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint64",
+        "name": "_nonce",
+        "type": "uint64"
+      }
+    ],
+    "name": "fetchExecuteRecord",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "bool",
+            "name": "isExecuted",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "_status",
+            "type": "bool"
+          },
+          {
+            "internalType": "bytes",
+            "name": "_callback",
+            "type": "bytes"
+          }
+        ],
+        "internalType": "struct GenericHandlerUpgradeable.ExecuteRecord",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "fetchFeeManager",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint8",
+        "name": "_ChainID",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint64",
+        "name": "_nonce",
+        "type": "uint64"
+      }
+    ],
+    "name": "fetchFeeRecord",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint8",
+            "name": "_destChainID",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint64",
+            "name": "_nonce",
+            "type": "uint64"
+          },
+          {
+            "internalType": "address",
+            "name": "_feeToken",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_gasLimit",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_gasPrice",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_feeAmount",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct GenericHandlerUpgradeable.FeeRecord",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "fetchResourceID",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "fetch_chainID",
+    "outputs": [
+      {
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint8",
+        "name": "_destChainID",
+        "type": "uint8"
+      },
+      {
+        "internalType": "bytes",
+        "name": "_data",
+        "type": "bytes"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_gasLimit",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_gasPrice",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "_feeToken",
+        "type": "address"
+      }
+    ],
+    "name": "genericDeposit",
+    "outputs": [
+      {
+        "internalType": "uint64",
+        "name": "",
+        "type": "uint64"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getRoleAdmin",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "grantRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "hasRole",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_bridge",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "_resourceID",
+        "type": "bytes32"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "renounceRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint8",
+        "name": "_destChainID",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint64",
+        "name": "_depositNonce",
+        "type": "uint64"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_gasLimit",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_gasPrice",
+        "type": "uint256"
+      }
+    ],
+    "name": "replayGenericDeposit",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "role",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "revokeRole",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_bridge",
+        "type": "address"
+      }
+    ],
+    "name": "setBridge",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint8",
+        "name": "_chainID",
+        "type": "uint8"
+      }
+    ],
+    "name": "setChainId",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint8",
+        "name": "_chainID",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_defaultGas",
+        "type": "uint256"
+      }
+    ],
+    "name": "setDefaultGas",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint8",
+        "name": "_chainID",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_defaultGasPrice",
+        "type": "uint256"
+      }
+    ],
+    "name": "setDefaultGasPrice",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_feeManager",
+        "type": "address"
+      }
+    ],
+    "name": "setFeeManager",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint8",
+        "name": "destinationChainID",
+        "type": "uint8"
+      },
+      {
+        "internalType": "address",
+        "name": "feeTokenAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "feeFactor",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "bridgeFee",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "accepted",
+        "type": "bool"
+      }
+    ],
+    "name": "setFees",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes4",
+        "name": "interfaceId",
+        "type": "bytes4"
+      }
+    ],
+    "name": "supportsInterface",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "tokenAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "recipient",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "withdrawFees",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

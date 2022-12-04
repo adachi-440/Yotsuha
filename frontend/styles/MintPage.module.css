@@ -1,0 +1,14 @@
+.mintbutton{
+    padding-top:100px;
+    padding-left: 40%;
+    padding-right: 40%;
+  }
+
+  .image{
+    padding-top: 100px;
+  }
+  .title {
+    margin: 0;
+    line-height: 1.15;
+    font-size: 4rem;
+  }
